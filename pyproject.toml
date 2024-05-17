@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "eftk-spins-backend"
+version = "0.1.0"
+description = ""
+authors = ["Enio Ohmaye <enio.ohmaye@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12.1"
+fastapi = "^0.111.0"
+neo4j = "^5.20.0"
+python-dotenv = "^1.0.1"
+pandas = "^2.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
