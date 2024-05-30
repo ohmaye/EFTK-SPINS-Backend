@@ -30,32 +30,11 @@ class Student(BaseModel):
     active: bool = False
 
 
-class Teacher(BaseModel):
-    id: UUID = ""
-    name: str = ""
-    nameJP: str = ""
-    email: str = ""
-    active: bool = False
-
-
 class Course(BaseModel):
     id: UUID = ""
     code: str = ""
     name: str = ""
     active: bool = False
-
-
-class Room(BaseModel):
-    id: UUID
-    name: str
-    type: str = ""
-    capacity: int = 0
-    active: bool = False
-
-
-class Strengths(BaseModel):
-    header: list[str]
-    body: list[list[str]]
 
 
 class TimeSlot(BaseModel):
@@ -67,19 +46,6 @@ class TimeSlot(BaseModel):
 
     class Config:
         json_encoders = {Weekday: lambda v: {"key": v.name, "value": v.value}}
-
-
-class Event(BaseModel):
-    id: UUID = ""
-    courseID: str = ""
-    what: str = ""
-    where: str = ""
-    roomID: str = ""
-    when: str = ""
-    timeSlotID: str = ""
-    who: str = ""
-    teacherID: str = ""
-    cycle: str = ""
 
 
 class UpdateStudentChoice(BaseModel):
@@ -94,12 +60,6 @@ class UpdateActive(BaseModel):
     active: bool
 
 
-class UpdateStrength(BaseModel):
-    teacherID: UUID
-    courseID: UUID
-    strength: int
-
-
 class UpdateAvailability(BaseModel):
     entity: str
     id: UUID
@@ -112,12 +72,8 @@ class DeleteEntity(BaseModel):
     id: UUID
 
 
-class Assignment(BaseModel):
-    studentID: str = ""
-    eventID: str = ""
-
-
-class Assign(BaseModel):
-    students: list[str] = []
-    eventID: str = ""
-    timeSlotID: str = ""
+class Survey(BaseModel):
+    id: UUID
+    cycle: str = ""
+    program: str = ""
+    weekday: str = ""
